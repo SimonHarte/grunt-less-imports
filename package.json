@@ -1,7 +1,7 @@
 {
   "name": "grunt-at-imports",
   "description": "A grunt task to create @import statements from a collection of stylesheet files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/SimonHarte/grunt-at-imports",
   "license": "MIT",
   "author": "Simon Harte <s.harte@gmx.ch> (https://github.com/SimonHarte)",
