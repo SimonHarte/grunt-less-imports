@@ -1,6 +1,6 @@
 /*
  * grunt-at-imports
- * https://github.com/SimonHarte/grunt-less-imports
+ * https://github.com/SimonHarte/grunt-at-imports
  *
  * Copyright (c) 2013 Simon Harte
  * Licensed under the MIT license.
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 		this.files.forEach(function(f) {
 
 			var css = '';
-			var lessImports = '';
+			var fileImports = '';
 			var dest = f.dest;
 			var relRoot = path.dirname(dest);
 			var resolved;
@@ -75,16 +75,16 @@ module.exports = function(grunt) {
 							}
 						}
 						if(type === 'less') {
-							lessImports += util.format('@import (%s) "%s";\n', importStr, resolved);
+							fileImports += util.format('@import (%s) "%s";\n', importStr, resolved);
 						} else {
-							lessImports += util.format('@import "%s";\n', resolved);
+							fileImports += util.format('@import "%s";\n', resolved);
 						}
 					}
 				}
 			}
 
 			// Write the destination file.
-			grunt.file.write(dest, banner + css + lessImports);
+			grunt.file.write(dest, banner + css + fileImports);
 			grunt.log.writeln('File "' + f.dest.cyan + '" created.');
 		});
 	});

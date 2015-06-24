@@ -1,14 +1,10 @@
 {
   "name": "grunt-at-imports",
-  "description": "A grunt task to create LessCSS @import statements from a collection of stylesheet files",
-  "version": "1.1.0",
+  "description": "A grunt task to create @import statements from a collection of stylesheet files",
+  "version": "1.0.0",
   "homepage": "https://github.com/SimonHarte/grunt-at-imports",
   "license": "MIT",
-  "author": {
-    "name": "Simon Harte",
-    "email": "s.harte@gmx.ch",
-    "url": "https://github.com/SimonHarte"
-  },
+  "author": "Simon Harte <s.harte@gmx.ch> (https://github.com/SimonHarte)",
   "repository": {
     "type": "git",
     "url": "git://github.com/SimonHarte/grunt-at-imports.git"
