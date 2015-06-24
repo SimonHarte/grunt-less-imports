@@ -6,5 +6,5 @@ body { color: black; }
 body { background-color: #fff; }
 
 
-@import (once) "../../test/fixtures/styles.less";
-@import (once) "../../test/fixtures/deeper/styles.less";
+@import "../../test/fixtures/styles.scss";
+@import "../../test/fixtures/deeper/styles.scss";

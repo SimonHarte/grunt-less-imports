@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGQ,qCAA0B;AAE1B,4CAAiC;ACJzC,IAAK;EAAE,KAAK,EADC,KAAK;;ACAlB,IAAK;EAEJ,KAAK,EADQ,OAAO",
+"sources": ["imports.scss","../../fixtures/styles.scss","../../fixtures/deeper/styles.scss"],
+"names": [],
+"file": "output.scss.css"
+}

@@ -1,0 +1,9 @@
+@import url(test/fixtures/styles.css);
+@import url(test/fixtures/deeper/styles.css);
+body {
+  color: green; }
+
+body {
+  color: fuchsia; }
+
+/*# sourceMappingURL=output.scss.css.map */
