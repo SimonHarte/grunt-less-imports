@@ -1,24 +1,25 @@
 {
-  "name": "grunt-less-imports",
+  "name": "grunt-at-imports",
   "description": "A grunt task to create LessCSS @import statements from a collection of stylesheet files",
   "version": "1.1.0",
-  "homepage": "https://github.com/MarcDiethelm/grunt-less-imports",
+  "homepage": "https://github.com/SimonHarte/grunt-at-imports",
+  "license": "MIT",
   "author": {
-    "name": "Marc Diethelm",
-    "email": "marc@web5.me",
-    "url": "https://github.com/MarcDiethelm"
+    "name": "Simon Harte",
+    "email": "s.harte@gmx.ch",
+    "url": "https://github.com/SimonHarte"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/MarcDiethelm/grunt-less-imports.git"
+    "url": "git://github.com/SimonHarte/grunt-at-imports.git"
   },
   "bugs": {
-    "url": "https://github.com/MarcDiethelm/grunt-less-imports/issues"
+    "url": "https://github.com/SimonHarte/grunt-at-imports/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/MarcDiethelm/grunt-less-imports/blob/master/LICENSE-MIT"
+      "url": "https://github.com/SimonHarte/grunt-less-imports/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -33,6 +34,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-less": "^0.12.0",
+    "grunt-contrib-sass": "^0.9.2",
     "grunt-mocha-test": "^0.12.2"
   },
   "peerDependencies": {
@@ -40,8 +42,6 @@
   },
   "keywords": [
     "gruntplugin",
-    "less",
-    "lessCSS",
     "import",
     "@import",
     "debug",
