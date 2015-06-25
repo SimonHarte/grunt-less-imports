@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 								fileImports += util.format('@import (%s) "%s";\n', importStr, resolved);
 							break;
 							case '.js':
-								fileImports += util.format('import "%s";\n', resolved);
+								fileImports += util.format('import "./%s";\n', resolved);
 							break;
 							default:
 								fileImports += util.format('@import "%s";\n', resolved);
