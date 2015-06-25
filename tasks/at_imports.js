@@ -32,52 +32,53 @@ module.exports = function(grunt) {
 			var css = '';
 			var fileImports = '';
 			var dest = f.dest;
+			var destExt = path.extname(dest);
 			var relRoot = path.dirname(dest);
 			var resolved;
 			var i = 0;
 			var filepath;
 			var extension;
 			var importStr;
-			var type;
 
-			if ('function' !== typeof options.import) {
+			if('function' !== typeof options.import) {
 				importStr = options.import;
-			}
-
-			if (path.extname(dest) === '.less') {
-				type = 'less';
-			} else {
-				type = 'sass';
 			}
 
 			// Process sources "f.src.forEach";
 
-			for (; i < f.src.length; i++) {
+			for(; i < f.src.length; i++) {
 				filepath = f.src[i];
 
 				// Warn on and ignore invalid source files (e.g. if nonull was set).
-				if (!grunt.file.exists(filepath)) {
+				if(!grunt.file.exists(filepath)) {
 					grunt.log.warn('Source file "' + filepath + '" not found.');
 				} else {
-					extension = filepath.split('.').pop();
-					if (options.inlineCSS === true && extension === 'css') {
-						grunt.log.debug(filepath.green+ ' appending css'.magenta);
-						css += grunt.file.read(filepath) + '\n\n';
-					}
-					else {
-						resolved = path.relative(relRoot, filepath);
-						grunt.log.debug(resolved.green + ' @import created'.magenta);
+					extension = path.extname(filepath).replace('.', '');
 
-						if ('function' === typeof options.import) {
+					if(options.inlineCSS === true && extension === 'css') {
+						grunt.log.debug(filepath.green + ' appending css'.magenta);
+						css += grunt.file.read(filepath) + '\n\n';
+					} else {
+						resolved = path.relative(relRoot, filepath);
+						grunt.log.debug(resolved.green + ' import created'.magenta);
+
+						if('function' === typeof options.import) {
 							importStr = options.import(filepath, extension);
-							if ('string' !== typeof importStr) {
+
+							if('string' !== typeof importStr) {
 								errorImportCallback(filepath, extension);
 							}
 						}
-						if(type === 'less') {
-							fileImports += util.format('@import (%s) "%s";\n', importStr, resolved);
-						} else {
-							fileImports += util.format('@import "%s";\n', resolved);
+						switch(destExt) {
+							case '.less':
+								fileImports += util.format('@import (%s) "%s";\n', importStr, resolved);
+							break;
+							case '.js':
+								fileImports += util.format('import "%s";\n', resolved);
+							break;
+							default:
+								fileImports += util.format('@import "%s";\n', resolved);
+							break;
 						}
 					}
 				}
@@ -91,8 +92,8 @@ module.exports = function(grunt) {
 
 	function errorImportCallback(filepath, extension, importFunc) {
 		var error = grunt.util.error(util.format(
-			'options.import callback given, but no string returned.\n' +
-			'Arguments passed: ["%s", "%s"].', filepath, extension)
+				'options.import callback given, but no string returned.\n' +
+				'Arguments passed: ["%s", "%s"].', filepath, extension)
 		);
 		grunt.fail.warn(error);
 	}
