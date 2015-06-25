@@ -188,24 +188,6 @@ module.exports = function (grunt) {
 				},
 				src: ['test/*.test.js']
 			}
-		},
-
-		less: {
-			compile: {
-				files: {
-					'tmp/compiled/test_default.less.css': 'tmp/test_src_dest/imports.less',
-					'tmp/compiled/inline_css_false.less.css': 'tmp/inline_css_false/imports.less'
-				}
-			}
-		},
-
-		sass: {
-			compile: {
-				files: {
-					'tmp/compiled/test_default.scss.css': 'tmp/test_src_dest/imports.scss',
-					'tmp/compiled/inline_css_false.scss.css': 'tmp/inline_css_false/imports.scss'
-				}
-			}
 		}
 
 	});
@@ -216,13 +198,11 @@ module.exports = function (grunt) {
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-mocha-test');
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'at_imports', 'less', 'sass', 'mochaTest']);
+	grunt.registerTask('test', ['clean', 'at_imports', 'mochaTest']);
 
 	// By default, lint and run all tests.
 	grunt.registerTask('default', ['jshint', 'test']);
