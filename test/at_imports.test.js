@@ -92,4 +92,26 @@ describe('grunt-at-imports', function() {
 
 	});
 
+	describe('Generation of js imports file', function() {
+
+		it('should create a correct imports.js from src/dest configuration', function() {
+			var actual = grunt.file.read('tmp/test_src_dest/imports.js');
+			var expected = grunt.file.read('test/expected/default/imports.js');
+			assert.equal(actual, expected);
+		});
+
+		it('should create a correct imports.js from a files configuration', function() {
+			var actual = grunt.file.read('tmp/test_files/imports.js');
+			var expected = grunt.file.read('test/expected/default/imports.js');
+			assert.equal(actual, expected);
+		});
+
+		it('should create a correct imports.js with a custom banner', function() {
+			var actual = grunt.file.read('tmp/test_custom_banner/imports.js');
+			var expected = grunt.file.read('test/expected/test_custom_banner/imports.js');
+			assert.equal(actual, expected);
+		});
+
+	});
+
 });

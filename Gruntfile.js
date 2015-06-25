@@ -54,6 +54,14 @@ module.exports = function (grunt) {
 				], // test using incorrect order, because we handle this
 				dest: 'tmp/test_src_dest/imports.scss'
 			},
+			test_src_dest_js: {
+				options: {
+				},
+				src: [
+					'test/fixtures/*.js'
+				],
+				dest: 'tmp/test_src_dest/imports.js'
+			},
 			test_files_less: {
 				options: {
 				},
@@ -75,6 +83,15 @@ module.exports = function (grunt) {
 						'test/fixtures/styles.css',
 						'test/fixtures/deeper/styles.scss',
 						'test/fixtures/deeper/styles.css'
+					]
+				}
+			},
+			test_files_js: {
+				options: {
+				},
+				files: {
+					'tmp/test_files/imports.js': [
+						'test/fixtures/script.js'
 					]
 				}
 			},
@@ -149,6 +166,15 @@ module.exports = function (grunt) {
 					'test/fixtures/*.css'
 				],
 				dest: 'tmp/test_custom_banner/imports.scss'
+			},
+			test_custom_banner_js: {
+				options: {
+					banner: '// Banner for <%= package.name %>'
+				},
+				src: [
+					'test/fixtures/*.js'
+				],
+				dest: 'tmp/test_custom_banner/imports.js'
 			},
 			import_option_less: {
 				options: {
