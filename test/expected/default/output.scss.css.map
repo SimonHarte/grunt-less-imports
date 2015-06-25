@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,IAAK;EAAE,KAAK,EAAE,KAAK;;AAGnB,IAAK;EAAE,gBAAgB,EAAE,IAAI;;ACJ7B,IAAK;EAAE,KAAK,EADC,KAAK;;ACAlB,IAAK;EAEJ,KAAK,EADQ,OAAO",
-"sources": ["imports.scss","../../fixtures/styles.scss","../../fixtures/deeper/styles.scss"],
-"names": [],
-"file": "output.scss.css"
-}
