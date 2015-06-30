@@ -60,6 +60,8 @@ module.exports = function(grunt) {
 						css += grunt.file.read(filepath) + '\n\n';
 					} else {
 						resolved = path.relative(relRoot, filepath);
+						resolved.replace('\\', '/'); // for stupid windows
+
 						grunt.log.debug(resolved.green + ' import created'.magenta);
 
 						if('function' === typeof options.import) {
@@ -69,6 +71,7 @@ module.exports = function(grunt) {
 								errorImportCallback(filepath, extension);
 							}
 						}
+
 						switch(destExt) {
 							case '.less':
 								fileImports += util.format('@import (%s) "%s";\n', importStr, resolved);
