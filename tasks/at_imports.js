@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 						css += grunt.file.read(filepath) + '\n\n';
 					} else {
 						resolved = path.relative(relRoot, filepath);
-						resolved.replace('\\', '/'); // for stupid windows
+						resolved = resolved.replace(/\\/g, '/'); // for stupid windows
 
 						grunt.log.debug(resolved.green + ' import created'.magenta);
 
